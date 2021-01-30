@@ -134,7 +134,11 @@ public class EstimateController {
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
-        model.addAttribute("price", price);
+        if(price==-1){
+            model.addAttribute("price", "お荷物が多いため、Web上ではお見積りできません。弊社からの連絡をお待ちください");
+        }else {
+            model.addAttribute("price", "概算お見積り結果は" + price + "円です。");
+        }
         return "result";
     }
 

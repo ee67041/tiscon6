@@ -136,7 +136,6 @@ public class EstimateDao {
         try {
             return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
         }catch(EmptyResultDataAccessException e){
-            System.out.println("aaaaaa");
             return -1;
         }
     }

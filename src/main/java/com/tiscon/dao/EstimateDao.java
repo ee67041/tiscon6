@@ -1,6 +1,7 @@
 package com.tiscon.dao;
 
 import com.tiscon.domain.*;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.*;
@@ -132,7 +133,11 @@ public class EstimateDao {
         String sql = "SELECT PRICE FROM TRUCK_CAPACITY WHERE MAX_BOX >= :boxNum ORDER BY PRICE LIMIT 1";
 
         SqlParameterSource paramSource = new MapSqlParameterSource("boxNum", boxNum);
-        return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+        try {
+            return parameterJdbcTemplate.queryForObject(sql, paramSource, Integer.class);
+        }catch(EmptyResultDataAccessException e){
+            return -1;
+        }
     }
 
     /**

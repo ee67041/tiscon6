@@ -23,15 +23,15 @@
         <legend>個人情報</legend>
         <div class="form-group">
           <label for="customerName">氏名</label>
-          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎" required/>
         </div>
         <div class="form-group">
           <label for="tel">連絡先TEL</label>
-          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678" required/>
         </div>
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
-          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com" required/>
         </div>
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
@@ -42,7 +42,7 @@
         <div class="form-group">
           <label for="oldAddress">転居元住所（市区町村以下）</label>
           <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
-                 class="form-control" value="新宿区西新宿1-1-1"/>
+                 class="form-control" value="新宿区西新宿1-1-1" required/>
         </div>
         <div class="form-group">
           <label for="newPrefectureId">転居先住所（都道府県）</label>
@@ -53,27 +53,27 @@
         <div class="form-group">
           <label for="newAddress">転居先住所（市区町村以下）</label>
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
-                 value="札幌市南区1"/>
+                 value="札幌市南区1" required/>
         </div>
       </fieldset>
       <fieldset>
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10" required/>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3" required/>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数</label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1" required/>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数</label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
-                 value="1"/>
+                 value="1" required/>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>

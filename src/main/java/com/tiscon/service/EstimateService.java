@@ -96,7 +96,22 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        String dateS = dto.getMovingDate().split("-", 0)[1];
+        System.out.println("dateS : " + dateS);
+        int dateI = Integer.parseInt(dateS);
+        System.out.println("dateI : " + dateI);
+
+        int priceConsideredN = priceForDistance + pricePerTruck;
+        if (3 <= dateI && dateI <= 4) {
+            priceConsideredN *= 1.5;
+        } else if (dateI == 9) {
+            priceConsideredN *= 1.2;
+        }
+        int tmp = (priceForDistance + pricePerTruck);
+        System.out.println("priceForDistance + pricePerTruck : " + tmp);
+        System.out.println("priceConsideredN : " + priceConsideredN);
+
+        return priceConsideredN + priceForOptionalService;
     }
 
     /**

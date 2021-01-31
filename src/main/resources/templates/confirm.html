@@ -101,7 +101,7 @@
           <!--<td><span @DateTimeFormat th:text="${{movingDate}}"></span></td>-->
           <td><span th:text="*{movingDate}"></span></td>
           <!--<input type="hidden" name="movingDate" id="movingDate" @DateTimeFormat th:value="${{movingDate}}"/>-->
-          <input type="hidden" name="movingDate" id="movingDate" th:text="*{movingDate}"/>
+          <input type="hidden" name="movingDate" id="movingDate" th:value="*{movingDate}"/>
         </tr>
 
         </tbody>

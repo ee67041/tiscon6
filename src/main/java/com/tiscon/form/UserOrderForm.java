@@ -57,7 +57,6 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
-    @Numeric
     @NotBlank
     //private Date date;
     //private DateFormat date;

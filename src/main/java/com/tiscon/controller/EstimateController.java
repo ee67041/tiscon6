@@ -79,7 +79,19 @@ public class EstimateController {
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
-        return "confirm";
+        // 洗濯機を運ばないのに設置申し込みを行おうとしていないか確認。
+        UserOrderDto dto = new UserOrderDto();
+        BeanUtils.copyProperties(userOrderForm, dto);
+        int washing_Machine = dto.getWashingMachine();
+        boolean washingmachine_installation =dto.getWashingMachineInstallation();
+        if (washing_Machine==0 && washingmachine_installation){
+            model.addAttribute("wmError", "洗濯機が0個の場合設置申し込みは行うことができません。");
+            return "input";
+        }
+        else{
+            return "confirm";
+        }
+
     }
 
     /**

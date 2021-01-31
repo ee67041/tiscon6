@@ -15,6 +15,7 @@
 <div class="container">
   <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
     <h1>お見積り情報入力</h1>
+    <h2><font color="red"><span th:text="${wmError}"></span></font></h2>
     <ul th:if="${#fields.hasErrors('all')}">
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
@@ -26,12 +27,12 @@
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎" required/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL</label>
-          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678" required/>
+          <label for="tel">連絡先TEL (ハイフンなし)</label>
+          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678" pattern="[0-9]{10,11}"  required/>
         </div>
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
-          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com" required/>
+          <input type="email" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com" required/>
         </div>
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
@@ -75,6 +76,7 @@
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
                  value="1" required/>
         </div>
+       <font color="red"><span th:text="${wmError}"></span></font>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>
           <select id="washingMachineInstallation" name="washingMachineInstallation" class="form-control" th:field="*{washingMachineInstallation}">
@@ -85,7 +87,7 @@
       </fieldset>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="backToTop" class="btn btn-primary">TOPへ戻る</button>
+          <a class="btn btn-primary" th:href="@{/}" role="button" >TOPへ戻る</a>
           <button type="submit" name="confirm" class="btn btn-primary">確認</button>
         </div>
       </div>

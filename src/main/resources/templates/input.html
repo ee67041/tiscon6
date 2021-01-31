@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns: xmlns: xmlns:>-->
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -82,6 +83,14 @@
             <option th:value="true" th:text="あり">あり</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="movingDate">引っ越し時期の指定</label>
+          <!--<input type="date" name="movingDate" id="movingDate" th:value="*{movingDate}" class="form-control" required></input>-->
+          <!--<input type="date" name="movingDate" id="movingDate" class="form-control" required></input>-->
+          <input type="date" name="movingDate" id="movingDate" th:field="*{movingDate}" value="2000-1-1" class="form-control" required></input>
+      </div>
+
       </fieldset>
       <div class="form-group">
         <div class="text-center">
